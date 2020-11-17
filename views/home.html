@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Petrolegame v1.1</title>
+    </head>
+    
+    <body>
+        <div id="killfeed" style="opacity:0"></div>
+        <div id="powerup" style="opacity:0"></div>
+        <div id="overlay" style="opacity: 0;"></div>
+        <div id="pause" style="opacity: 0; pointer-events: none;">
+        <div style="position:relative;top:1vw;font-size:3vw">scoreboard</div>
+        <div id="data"><table align="center" rules="cols"><tbody><tr><th>name</th><th>kills</th><th>deaths</th><th>points</th></tr><tr><td>g</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div>
+        <div style="position:absolute;bottom:1vw;cursor:pointer" onclick="Hit('suicide')">suicide</div>
+        </div>
+        
+        <div id="upgrades" style="opacity: 1;">
+        <div><b>Upgrades:</b></div>
+        <div class="upgrade" onclick="Upgrade('health')">Health - <span id="dualCost">30</span> Points</div>
+        <div class="upgrade" onclick="Upgrade('damage')">Damage - <span id="damageCost">5</span> Points</div>
+        <div class="upgrade" onclick="Upgrade('cooldown')">Cooldown - <span id="cooldownCost">5</span> Points</div>
+        <div class="upgrade" onclick="Upgrade('speed')">Speed - <span id="speedCost">5</span> Points</div>
+        <div class="upgrade" onclick="Upgrade('jump')">Jump Height - <span id="jumpCost">5</span> Points</div>
+        <div class="upgrade" onclick="Upgrade('dualGun')">Dual Gun - <span id="dualCost">30</span> Points</div>
+
+        </div>
+        
+        <div id="gunSelect" style="opacity: 0; display: none;">GUN SELECT<br><br><div class="gun" onclick="SelectGun(50,500)">50 damage, 500ms cooldown</div><div class="gun" onclick="SelectGun(100,2000)">100 damage, 2s cooldown</div><div class="gun" onclick="SelectGun(25,250)">25 damage, 250ms cooldown</div></div>
+        <div id="chatHide" onclick="ShowChat()" style="opacity: 1;">click chat box to hide chat</div>
+        <div id="chat" onclick="ShowChat()" onmousedown="return false" style="width: 400px; font-size: 13pt; height: 197px; bottom: 48px; opacity: 1;"><span style="color:orange">11:54 am</span> | <span style="color:#cf1eaa">666666666666666</span>: hi<br><span style="color:orange">3:54 am</span> | <span style="color:#e88c90">no</span>: hi<br><span style="color:orange">3:55 am</span> | <span style="color:#e88c90">no</span>: who you is<br><span style="color:orange">3:56 am</span> | <span style="color:#e88c90">no</span>: a bit rude dontcha think</div>
+        
+        <input type="text" id="chatInput" onkeydown="if(event.keyCode == 13){SendMessage();return false}" style="width: 414px; height: 40px; bottom: 10px; opacity: 1;">
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
+        <script type="text/javascript" src="main.js"></script><canvas width="885" height="789" style="pointer-events: all;"></canvas>
+    </body>
+</html>
